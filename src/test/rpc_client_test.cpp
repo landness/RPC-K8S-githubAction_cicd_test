@@ -15,7 +15,7 @@ int main()
     subscribe->init();
     RpcClient<echo::EchoRequest,echo::EchoResponse,echo::EchoService_Stub> rpcclient;
     echo::EchoRequest request;
-    request.set_payload("1111000");
+    request.set_payload("hello");
     auto reply = rpcclient.async_call(request,0);
     reply->inspect();
     return 0;
