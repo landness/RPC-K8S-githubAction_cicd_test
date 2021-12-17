@@ -1,6 +1,6 @@
 where-am-i = $(abspath $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))
 ROOT = $(dir $(call where-am-i))
-CC = g++ 
+CC = g++
 CXXFLAGS = -std=c++11 -g  -I $(ROOT) -pthread
 LDFLAGS = -lpthread -lprotobuf -lz -lhiredis -lssl -lcrypto
 SOURCE   = $(wildcard base/*.cpp net/*.cpp rpc/*.cpp)
@@ -31,7 +31,3 @@ client_test: test/client_test.cpp
 server_test: test/server_test.cpp
 rpc_client_test: test/rpc_client_test.cpp
 rpc_server_test: test/rpc_server_test.cpp
-
-
-
-
