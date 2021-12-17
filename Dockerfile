@@ -7,9 +7,9 @@ FROM gcc:latest
 
 # These commands copy your files into the specified directory in the image
 # and set that as the working location
-RUN mkdir /usr/src
-COPY . /usr/src
-WORKDIR /usr/src
+RUN mkdir /usr/local/src
+COPY . /usr/local/src
+WORKDIR /usr/local/src
 
 RUN apt-get install -y gcc gcc-c++ make wget curl openssl \ 
     autoconf automake libtool unzip
@@ -23,6 +23,9 @@ RUN wget http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.t
 
 ENV PATH $PATH:/usr/local/boost_1_60_0
 ENV PATH $PATH:/usr/local/boost_1_60_0/stage/lib
+# if ENV invalid, use export
+#export   CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/boost_1_60_0
+#export   LIBRARY_PATH=$LIBRARY_PATH:/usr/local/boost_1_60_0/stage/lib
 
 RUN git clone https://github.com/google/protobuf && \
     cd protobuf && \
@@ -36,10 +39,6 @@ RUN git clone https://github.com/redis/hiredis.git && \
     cd hiredis && \
     make && \
     make install
-
-# if ENV invalid, use export
-#export   CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/boost_1_60_0
-#export   LIBRARY_PATH=$LIBRARY_PATH:/usr/local/boost_1_60_0/stage/lib
 
 # This command compiles your app using GCC, adjust for your source code
 RUN make
