@@ -7,9 +7,9 @@ FROM gcc:latest
 
 # These commands copy your files into the specified directory in the image
 # and set that as the working location
-RUN mkdir /usr/local/src
-COPY . /usr/local/src
-WORKDIR /usr/local/src
+RUN mkdir /usr/local/rush-rpc
+COPY . /usr/local/rush-rpc
+WORKDIR /usr/local/rush-rpc
 
 RUN apt-get install -y gcc gcc-c++ make wget curl openssl \ 
     autoconf automake libtool unzip
