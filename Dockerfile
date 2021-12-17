@@ -19,7 +19,7 @@ RUN wget http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.t
     cd boost_1_60_0 && \
     ./bootstrap.sh --prefix=/usr/local && \
     ./b2 install --with=all && \
-    mv boost_1_60_0 /usr/local
+    cd .. && mv boost_1_60_0 /usr/local
 
 ENV PATH $PATH:/usr/local/boost_1_60_0
 ENV PATH $PATH:/usr/local/boost_1_60_0/stage/lib
