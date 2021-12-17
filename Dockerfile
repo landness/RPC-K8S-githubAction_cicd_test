@@ -11,7 +11,7 @@ RUN mkdir /usr/local/rush-rpc
 COPY . /usr/local/rush-rpc
 WORKDIR /usr/local/rush-rpc
 
-RUN apt-get install -y gcc gcc-c++ make wget curl openssl \ 
+RUN apt-get install -y gcc make wget curl openssl \ 
     autoconf automake libtool unzip
 
 RUN wget http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.gz && \
