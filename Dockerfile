@@ -19,7 +19,7 @@ RUN wget http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.t
     cd boost_1_60_0 && \
     ./bootstrap.sh --prefix=/usr/local && \
     ./b2 install --with=all && \
-    sudo mv boost_1_60_0 /usr/local
+    mv boost_1_60_0 /usr/local
 
 ENV PATH $PATH:/usr/local/boost_1_60_0
 ENV PATH $PATH:/usr/local/boost_1_60_0/stage/lib
@@ -32,8 +32,8 @@ RUN git clone https://github.com/google/protobuf && \
     ./autogen.sh && \
     ./configure && \
     make && \
-    sudo make install \
-    sudo ldconfig
+    make install \
+    ldconfig
 
 RUN git clone https://github.com/redis/hiredis.git && \
     cd hiredis && \
