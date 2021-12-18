@@ -32,7 +32,7 @@ RUN git clone https://github.com/google/protobuf && \
     ./autogen.sh && \
     ./configure && \
     make && \
-    make install \
+    make install && \
     ldconfig
 
 RUN git clone https://github.com/redis/hiredis.git && \
@@ -46,4 +46,4 @@ RUN make
 # This command runs your application, comment out this line to compile only
 CMD ["./rpc_server_test"]
 
-LABEL Name=networklibrpc Version=0.0.1
+LABEL Name=RushRPC Version=0.0.1

@@ -1,22 +1,22 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: apps/v1 # 接口版本
+kind: Deployment    # 接口类型
 metadata:
-  name: dict-gen
+  name: rush-rpc    # deployment name
   labels:
-    app: nginx-dict-gen
+    app: rush-rpc
 spec:
-  replicas: 3
+  replicas: 1       # pod数
   selector:
-    matchLabels:
-      app: nginx-dict-gen
+    matchLabels:    
+      app: rush-rpc 
   template:
     metadata:
       labels:
-        app: nginx-dict-gen
-    spec:
-      containers:
-        - name: nginx-dict-gen
-          image: hkccr.ccs.tencentyun.com/dict-gen/dict-gen
+        app: rush-rpc # 模板名称
+    spec:             # 定义容器模板 
+      containers:     # -command -arg可选 不填默认配置
+        - name: rush-rpc
+          image: hkccr.ccs.tencentyun.com/rush-rpc
           ports:
             - containerPort: 80
       imagePullSecrets:
