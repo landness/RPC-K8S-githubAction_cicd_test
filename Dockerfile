@@ -41,7 +41,7 @@ RUN git clone https://github.com/redis/hiredis.git && \
     make install
 
 # This command compiles your app using GCC, adjust for your source code
-RUN make
+RUN cd /usr/local/rush-rpc && make
 
 # This command runs your application, comment out this line to compile only
 CMD ["./rpc_server_test"]
