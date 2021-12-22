@@ -37,10 +37,8 @@ ENV PATH $PATH:/usr/local/boost_1_60_0/stage/lib
 #export   CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/boost_1_60_0
 #export   LIBRARY_PATH=$LIBRARY_PATH:/usr/local/boost_1_60_0/stage/lib
 
-WORKDIR /usr/local/rush-rpc/src
-
 # This command compiles your app using GCC, adjust for your source code
-RUN make
+RUN cd /usr/local/rush-rpc && make
 
 # This command runs your application, comment out this line to compile only
 CMD ["./rpc_server_test"]
