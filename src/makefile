@@ -9,6 +9,10 @@ BINARIES = client_test server_test
 TARGET = rpc_client_test rpc_server_test
 OBJS    = $(patsubst %.cpp,%.o,$(SOURCE))
 
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_definitions(-D_GLIBCXX_USE_C99=1)
+
 .PHONY:clean all
 
 all: $(BINARIES) $(TARGET)
